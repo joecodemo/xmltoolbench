@@ -14,17 +14,45 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" >
             <MenuItem x:Name="mnuFile" Header="File">
-                <MenuItem x:Name="mnuSendLog" Header="Send Log Info" ToolTip="Send the logging information to support for analysis." />
-                <MenuItem x:Name="mnuShowLog" Header="Show Log" ToolTip="Show the logging information"  />
+                <MenuItem x:Name="mnuLoadXML" Header="Load XML" ToolTip="Load the XML to transform." Click="MnuLoadXML_OnClick" />
+                <MenuItem x:Name="mnuLoadXSL" Header="Load XSL" ToolTip="Load the XSL transform to perform." Click="MnuLoadXSL_OnClick" />
                 <Separator/>
                 <MenuItem x:Name="mnuExit" Header="Exit" Click="MnuExit_OnClick" />
             </MenuItem>
-            <MenuItem x:Name="mnuAdmin" Header="Admin">
-                <MenuItem x:Name="mnuMigrate" Header="Migrate Data" ToolTip="Migrate data from TieLineCheckouts to Checkouts database" />
-            </MenuItem>
+
+            <MenuItem x:Name="mnuTransform" Header="Transform" Click="MnuTransform_OnClick" />
+
             <MenuItem x:Name="mnuHelp" Header="Help">
                 <MenuItem x:Name="mnuAbout" Header="About" Click="MnuAbout_OnClick"/>
             </MenuItem>
         </Menu>
+
+        <TabControl Grid.Row="1">
+            <TabItem Header="XML">
+                <Grid Margin="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBox x:Name="tbXMLFilePath" Grid.Row="0" Text="{Binding XMLFilePath, Mode = TwoWay}" />
+                    <TextBox x:Name="tbXMLFile" Grid.Row="1" />
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="XSL">
+                <Grid Margin="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBox x:Name="tbXSLFilePath" Grid.Row="0" Text="{Binding XSLFilePath, Mode = TwoWay}" />
+                    <TextBox x:Name="tbXSLFile" Grid.Row="1" />
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Result">
+                <TextBox x:Name="tbResult" />
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
