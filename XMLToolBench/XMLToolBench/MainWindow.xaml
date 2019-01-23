@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:XMLToolBench"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        DataContext="MainWindowViewModel"
+        Title="XML ToolBench" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" >
+            <MenuItem x:Name="mnuFile" Header="File">
+                <MenuItem x:Name="mnuSendLog" Header="Send Log Info" ToolTip="Send the logging information to support for analysis." />
+                <MenuItem x:Name="mnuShowLog" Header="Show Log" ToolTip="Show the logging information"  />
+                <Separator/>
+                <MenuItem x:Name="mnuExit" Header="Exit" Click="MnuExit_OnClick" />
+            </MenuItem>
+            <MenuItem x:Name="mnuAdmin" Header="Admin">
+                <MenuItem x:Name="mnuMigrate" Header="Migrate Data" ToolTip="Migrate data from TieLineCheckouts to Checkouts database" />
+            </MenuItem>
+            <MenuItem x:Name="mnuHelp" Header="Help">
+                <MenuItem x:Name="mnuAbout" Header="About" Click="MnuAbout_OnClick"/>
+            </MenuItem>
+        </Menu>
     </Grid>
 </Window>
